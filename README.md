@@ -1,2 +1,5 @@
-# new-project
-A base to start my projects
+To view the design:
+
+```
+npm install && bower install && gulp
+```
