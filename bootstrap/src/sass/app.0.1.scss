@@ -1,0 +1,19 @@
+@import 'base';
+@import 'layout';
+
+// Fonts
+// @import 'fonts';
+
+
+// Design
+body{
+    background-color: #fff;
+    color: #2d2927;
+    font-family: 'Open Sans', sans-serif;
+}
+.page {
+    @extend .full-width;
+    @extend .full-height;
+    position: absolute;
+}
+
