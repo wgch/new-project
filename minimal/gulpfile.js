@@ -8,6 +8,10 @@ const reload = function() {
 };
 // Copy assets
 gulp.task('assets', function() {
+    // Normalize.css
+    gulp.src('./node_modules/normalize.css/normalize.css').
+        pipe(rename({extname: '.scss',prefix: '_'})).
+        pipe(gulp.dest('./src/sass'));
 
     // Font Awesome
     gulp.src('./bower_components/font-awesome/css/**/*').
@@ -43,8 +47,6 @@ gulp.task('nunjucks', function() {
 // Sass
 gulp.task('sass', function() {
     gulp.src('./src/sass/*.scss').
-		pipe(sass({outputStyle: 'expanded'})).
-		pipe(gulp.dest('./app/css')).
 		pipe(sass({outputStyle: 'compressed'})).
 		pipe(rename({extname: '.min.css'})).
 		pipe(gulp.dest('./app/css'));
