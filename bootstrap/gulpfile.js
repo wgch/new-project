@@ -9,19 +9,14 @@ const reload = function() {
 // Copy assets
 gulp.task('assets', function() {
     gulp.src('./bower_components/bootstrap/dist/**/*').
-			pipe(gulp.dest('./app'));
-    gulp.src('./bower_components/font-awesome/css/**/*').
-			pipe(gulp.dest('./app/css'));
-    gulp.src('./bower_components/font-awesome/fonts/**/*').
-			pipe(gulp.dest('./app/fonts'));
-		gulp.src('./src/fonts/*').
-			pipe(gulp.dest('./app/fonts'));
+		pipe(gulp.dest('./app/deps/bootstrap'));
+    gulp.src('./bower_components/font-awesome/web-fonts-with-css/**/*').
+		pipe(gulp.dest('./app/deps/fa'));
     gulp.src('./bower_components/jquery/dist/**/*').
-			pipe(gulp.dest('./app/js'));
-		gulp.src('./bower_components/chart.js/dist/**/*').
-			pipe(gulp.dest('./app/js'));
-    gulp.src('./src/images/**/*').
-    	pipe(gulp.dest('./app/images'));
+    	pipe(gulp.dest('./app/deps/jquery'));
+
+	gulp.src('./src/fonts/*').
+		pipe(gulp.dest('./app/fonts'));
 });
 
 // Nunjucks compiling
@@ -50,12 +45,19 @@ gulp.task('js', function() {
 		pipe(gulp.dest('./app/js'));
 });
 
+// Copy images
+gulp.task('images', function() {
+    gulp.src('./src/images/**/*').
+    pipe(gulp.dest('./app/images'));
+});
+
 // Static Server + watching scss/html files
-gulp.task('serve', ['assets', 'sass', 'js', 'nunjucks'], function() {
+gulp.task('serve', ['assets', 'sass', 'js', 'images', 'nunjucks'], function() {
     browserSync.init({server: './app'});
 
     gulp.watch('./src/sass/*', ['sass', reload]);
     gulp.watch('./src/js/*', ['js', reload]);
+    gulp.watch('./src/images/*', ['images', reload]);
     gulp.watch('./src/templates/**/*', ['nunjucks', reload]);
 });
 
