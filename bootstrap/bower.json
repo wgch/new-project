@@ -13,12 +13,13 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-,    ".idea",    ".vscode"    ],
+    "tests",
+    ".idea",
+    ".vscode"
+  ],
   "dependencies": {
-    "jquery": "^3.1.1",
-    "font-awesome": "^4.7.0",
-    "bootstrap": "^3.3.7",
-    "chart.js": "^2.5.0"
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "font-awesome": "^5.0.8"
   }
 }
