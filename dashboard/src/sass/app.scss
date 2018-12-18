@@ -1,0 +1,17 @@
+@import 'base';
+@import 'layout';
+
+// Fonts
+// @import 'fonts';
+
+
+// Design
+body{
+    background-color: #fff;
+    color: #2d2927;
+    font-family: 'Roboto', sans-serif;
+    .ui, h1, h2, h3, h4, h5, h6{
+        font-family: 'Roboto', sans-serif;
+    }
+}
+

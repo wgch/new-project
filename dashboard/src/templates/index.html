@@ -1,0 +1,208 @@
+{% extends "base.html" %} {% block content %}
+    <div class="ui grid bg-grey-lighter">
+        <div class="row">
+            <div class="ui equal width container grid">
+                <div class="middle aligned row">
+                    <div class="column">
+                        <h3>Water Distribution Network</h3>
+                        <h5>Embu County</h5>
+                    </div>
+                    <div class="right aligned column">
+                        <div class="l-profile">
+                            <h4>Jane Doe</h4>
+                            <small>Administrator</small>
+                        </div>
+                        <div class="ui icon large pointing dropdown button">
+                            <i class="dropdown icon"></i>
+                            <div class="left menu">
+                                <a href="billing.html" class="item">Billing Department</a>
+                                <a href="technical.html" class="item">Technical Department</a>
+                                <a href="index.html" class="item">Administrator</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui equal width container grid">
+        <div class="row">
+            <div class="four wide column">
+                <h3>Summary</h3>
+                <span>1 Nov 18 - 30 Nov 18</span>
+            </div>
+            <div class="twelve wide right aligned column">
+                <button class="ui button">1 Nov 18 - 30 Nov 18</button>
+                <div class="ui buttons">
+                    <button class="ui button">Filter 1</button>
+                    <button class="ui button">Filter 2</button>
+                </div>
+                <button class="ui button">Export</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="ui horizontal equal width segments">
+                    <div class="ui green segment">
+                        <div class="ui middle aligned equal width grid">
+                            <div class="row">
+                                <div class="column">
+                                    <strong>Amount<br />Collected</strong>
+                                </div>
+                                <div class="right aligned column">
+                                    <h2>Ksh. 12,23,910</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="ui green small progress tab-progress" data-percent="45">
+                                        <div class="bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui grey segment">
+                        <div class="ui middle aligned equal width grid">
+                            <div class="row">
+                                <div class="column">
+                                    <strong>Total<br />Accounts</strong>
+                                </div>
+                                <div class="right aligned column">
+                                    <h2>2,923,910</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="ui grey small progress tab-progress" data-percent="95">
+                                        <div class="bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui blue segment">
+                        <div class="ui middle aligned equal width grid">
+                            <div class="row">
+                                <div class="column">
+                                    <strong>Litres<br />Consumed</strong>
+                                </div>
+                                <div class="right aligned column">
+                                    <h2>340,903,910</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="ui blue small progress tab-progress" data-percent="45">
+                                        <div class="bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="ten wide column">
+                <div class="ui segment ">
+                    <h3>Consumption</h3>
+                    <h5>1 Nov 18 - 30 Nov 18</h5>
+                    <div class="height-lg">
+                        <canvas id="consumptionTrend" width="400"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="six wide column">
+                <div class="ui segment padding-bottom-none">
+                    <h3>Meter Connectivity</h3>
+                    <h5>1 Nov 18 - 30 Nov 18</h5>
+                    <div class="height-lg padding-right-sm">
+                        <table class="ui very basic table">
+                            <tr>
+                                <td>Meter 56J</td>
+                                <td class="right aligned"><span class="ui red label">Failing</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 56J</td>
+                                <td class="right aligned"><span class="ui label">No data received</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 56J</td>
+                                <td class="right aligned"><span class="ui label">No data received</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 56J</td>
+                                <td class="right aligned"><span class="ui label">No data received</span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bg-grey-lighter"></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Meter 17H</td>
+                                <td class="right aligned"><span class="ui green label">Active</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <h3>Meter Activity</h3>
+                <table class="ui celled table">
+                    <thead>
+                    <tr>
+                        <th>Account</th>
+                        <th>Location</th>
+                        <th>Region</th>
+                        <th>Account</th>
+                        <th>Consumption</th>
+                        <th class="right aligned">Balance</th>
+                        <th class="collapsing"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>James Doe<br /><small>Meter 23JH</small></td>
+                        <td>Nairobi Road</td>
+                        <td>Embu North</td>
+                        <td>-</td>
+                        <td>34,920</td>
+                        <td class="right aligned">Ksh. 56</td>
+                        <td><button class="ui icon button"><i class="dropdown icon"></i></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
