@@ -18,8 +18,8 @@
     ".vscode"
   ],
   "dependencies": {
-    "jquery": "^3.1.1",
-    "font-awesome": "^4.7.0",
-    "chart.js": "^2.5.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "font-awesome": "^5.9.0"
   }
 }

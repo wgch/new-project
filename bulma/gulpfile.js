@@ -8,26 +8,17 @@ const reload = function() {
 };
 // Copy assets
 gulp.task('assets', function(done) {
-    // Normalize.css
-    gulp.src('./node_modules/normalize.css/normalize.css').
-        pipe(rename({extname: '.scss',prefix: '_'})).
-        pipe(gulp.dest('./src/sass'));
-
-    // Font Awesome
-    gulp.src('./bower_components/font-awesome/css/**/*').
-        pipe(gulp.dest('./app/css'));
-    gulp.src('./bower_components/font-awesome/fonts/**/*').
-        pipe(gulp.dest('./app/fonts'));
-        
-    // Custom fonts
-    gulp.src('./src/fonts/*').
-        pipe(gulp.dest('./app/fonts'));
-
-    // Jquery
+    gulp.src('./node_modules/bulma/css/**/*').
+		pipe(gulp.dest('./app/css'));
+    gulp.src('./bower_components/font-awesome/web-fonts-with-css/**/*').
+		pipe(gulp.dest('./app/deps/fa'));
     gulp.src('./bower_components/jquery/dist/**/*').
-        pipe(gulp.dest('./app/js'));
+    	pipe(gulp.dest('./app/deps/jquery'));
 
-    done();
+	gulp.src('./src/fonts/*').
+		pipe(gulp.dest('./app/fonts'));
+
+	done();
 });
 
 // Nunjucks compiling
@@ -93,3 +84,4 @@ gulp.task('serve', gulp.series('assets', 'sass', 'js', 'images', 'html', functio
 
 // Default task
 gulp.task('default', gulp.series('serve'));
+
