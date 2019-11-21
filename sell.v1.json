@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "sell",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/sale": {
+      "get": {
+        "summary": "get all stuff being sold",
+        "tags": [],
+        "responses": {}
+      },
+      "post": {
+        "summary": "post a new sale",
+        "tags": [],
+        "responses": {}
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "get all users",
+        "tags": [],
+        "responses": {}
+      }
+    }
+  }
+}
