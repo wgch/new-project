@@ -1,0 +1,28 @@
+{
+  "name": "design",
+  "version": "0.0.1",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp",
+    "build": "NODE_ENV=production gulp tailwind",
+    "build-images": "gulp images"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "normalize.css": "^8.0.1",
+    "nunjucks": "^3.2.3",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.4"
+  }
+}
