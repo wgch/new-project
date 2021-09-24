@@ -1,8 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
 body {
-    @apply bg-white text-gray-700;
+    @apply bg-white text-gray-800;
 }
 
-@tailwind utilities;
+.bg-dark{
+    background: #111 url("../images/bg.svg") top right no-repeat;
+    background-size: cover;
+}
+.bg-fade{
+    background: #111 url("../images/fade.svg") 70% 0 no-repeat;
+    //background-size: cover;
+}
+.bg-afr{
+    background: #111 url("../images/bg-african-2.jpg") no-repeat;
+    background-size: cover;
+}
+.bg-dark-1{
+    background: #111;
+}
+.bg-dark-2{
+    background: #222;
+}
+.bg-dark-2-alt{
+    background: #222;
+}
+.bg-dark-3{
+    background: #333;
+}
+.bg-dark-3-alt{
+    background: #333;
+}
+.bg-dark-alt{
+    background: #444;
+}
+.bg-hs-icon{
+    background: url("../images/hs-bg-icon.svg") top right repeat-x;
+}
+.bg-accent{
+    background: #FFD200;
+}
+.bg-accent:hover{
+    background: #ffdd39;
+}
+.font-montserrat{
+    font-family: "Montserrat", sans-serif;
+}
+@keyframes float {
+    0% {
+        /*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+        transform: translatey(0px);
+    }
+    50% {
+        /*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
+        transform: translatey(-20px);
+    }
+    100% {
+        /*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+        transform: translatey(0px);
+    }
+}
+@keyframes float2 {
+    0% {
+        /*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+        transform: translatey(0px);
+    }
+    50% {
+        /*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
+        transform: translatey(-20px);
+    }
+    100% {
+        /*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+        transform: translatey(0px);
+    }
+}
+.float{
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+}
+.float2{
+    transform: translatey(0px);
+    animation: float 9s ease-in-out infinite;
+}
+.control-block{
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+}
+.control-content{
+    display: none;
+}
+.loader {
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #FFD200; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@media all and (max-width: 480px) {
+    .bg-dark-1, .bg-dark-2, .bg-dark-3{
+        background-color: transparent;
+    }
+}

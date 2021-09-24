@@ -1,11 +1,16 @@
 module.exports = {
-  purge: ["./src/css/*.css", "./src/templates/*.html"],
-  darkMode: false, // or 'media' or 'class'
+  purge: ["./src/css/*.css", "./src/templates/**/*.html", "./src/js/*.js"],
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: theme => ({
+        'grey': '#555'
+      })
+    },
   },
   variants: {
     extend: {},
+    animation: ['responsive', 'motion-safe', 'motion-reduce']
   },
   plugins: [],
 }

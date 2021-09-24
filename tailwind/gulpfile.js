@@ -1,6 +1,10 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const rename = require('gulp-rename');
+const replace = require('gulp-replace');
+const fs = require('fs');
+const uglify = require('gulp-uglify');
+const htmlmin = require('gulp-htmlmin');
 const browserSync = require('browser-sync');
 const nunjucksRender = require('gulp-nunjucks-render');
 const postcss = require('gulp-postcss');
@@ -8,12 +12,28 @@ const imagemin = require('gulp-imagemin');
 const reload = function() {
     browserSync.reload();
 };
+gulp.task('files', function(done) {
+    gulp.src('src/files/**/*')
+        .pipe(gulp.dest('app/files'));
+    done();
+});
 
 // Nunjucks compiling
 gulp.task('html', function(done) {
-    gulp.src('src/templates/**/*.+(html|nunjucks)').
-		pipe(nunjucksRender({path: ['src/templates']})).
-		pipe(gulp.dest('app'));
+    gulp.src('src/templates/**/*.+(html|nunjucks)')
+        .pipe(nunjucksRender({path: ['src/templates']}))
+        .pipe(gulp.dest('app'));
+    done();
+});
+gulp.task('minify-html', function(done) {
+    gulp.src('src/templates/**/*.+(html|nunjucks)')
+        .pipe(nunjucksRender({path: ['src/templates']}))
+        .pipe(replace(/<link rel="stylesheet" href="css\/app.css"[^>]*>/, function(s) {
+            var style = fs.readFileSync('app/css/app.css', 'utf8');
+            return '<style>\n' + style + '\n</style>';
+        }))
+        .pipe(htmlmin({ collapseWhitespace: true, minifyJs: true, minifyCSS: true, removeComments:true }))
+        .pipe(gulp.dest('app'));
     done();
 });
 gulp.task("html-watch", gulp.series("html", function(done){
@@ -24,8 +44,6 @@ gulp.task("html-watch", gulp.series("html", function(done){
 // Sass
 gulp.task('sass', function(done) {
     gulp.src('./src/sass/*.scss').
-		pipe(sass({outputStyle: 'expanded'})).
-		pipe(gulp.dest('./app/css')).
 		pipe(sass({outputStyle: 'compressed'})).
 		pipe(rename({extname: '.min.css'})).
 		pipe(gulp.dest('./app/css'));
@@ -52,8 +70,9 @@ gulp.task("tailwind-watch", gulp.series("tailwind", function(done){
 
 // Copy JS files
 gulp.task('js', function(done) {
-    gulp.src('./src/js/**/*').
-		pipe(gulp.dest('./app/js'));
+    gulp.src('./src/js/**/*')
+        .pipe(uglify())
+        .pipe(gulp.dest('./app/js'));
     done();
 });
 gulp.task("js-watch", gulp.series("js", function(done){
