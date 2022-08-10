@@ -1,14 +1,16 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const rename = require('gulp-rename');
-const replace = require('gulp-replace');
-const fs = require('fs');
-const uglify = require('gulp-uglify');
-const htmlmin = require('gulp-htmlmin');
-const browserSync = require('browser-sync');
-const nunjucksRender = require('gulp-nunjucks-render');
-const postcss = require('gulp-postcss');
-const imagemin = import('gulp-imagemin');
+import gulp from 'gulp';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import rename from 'gulp-rename';
+import replace from 'gulp-replace';
+import fs from 'fs';
+import uglify from 'gulp-uglify';
+import htmlmin from 'gulp-htmlmin';
+import browserSync from 'browser-sync';
+import nunjucksRender from 'gulp-nunjucks-render';
+import postcss from 'gulp-postcss';
+import image from 'gulp-image';
+const sass = gulpSass(dartSass);
 const reload = function() {
     browserSync.reload();
 };
@@ -83,7 +85,7 @@ gulp.task("js-watch", gulp.series("js", function(done){
 // Copy images
 gulp.task('images', function(done) {
     gulp.src('./src/images/**/*')
-        //.pipe(imagemin())
+        .pipe(image())
         .pipe(gulp.dest('./app/images'));
     done();
 });
